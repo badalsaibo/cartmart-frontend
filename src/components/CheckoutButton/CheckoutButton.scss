@@ -1,0 +1,23 @@
+.checkout-button {
+	font-family: var(--font-primary);
+	text-transform: uppercase;
+	padding: 2.2rem 6rem;
+	color: white;
+	font-size: 2.4rem;
+	letter-spacing: 0.055em;
+	background: linear-gradient(118.39deg, #3B08C0 28.41%, #654DA8 90.9%);
+	box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.25);
+	border-radius: 100px;
+	cursor: pointer;
+	transition: all 0.2s;
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
