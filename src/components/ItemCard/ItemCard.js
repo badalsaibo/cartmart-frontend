@@ -4,7 +4,8 @@ import AddToCartButton from '../AddToCartButton/AddToCartButton';
 
 import './ItemCard.scss';
 
-const ItemCard = ({ name, mrp, price, discount, imageUrl }) => {
+const ItemCard = ({ itemData }) => {
+  const { name, mrp, price, discount, imageUrl } = itemData;
   return (
     <div className='item'>
       <div className='item__image'>

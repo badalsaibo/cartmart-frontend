@@ -1,3 +1,10 @@
 import axios from 'axios';
 
-export const getApiData = axios.get('/api/cartmart');
+export const loadData = async () => {
+  try {
+    const response = await axios.get('/api/cartmart');
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

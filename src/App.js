@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import axios from 'axios';
+import { loadData } from './services/requests';
 
 import './App.css';
 
 import ItemCard from './components/ItemCard/ItemCard';
 
+import Filters from './components/Filters/Filters';
+import Discount from './components/Discount/Discount';
+
 function App() {
   const [ store, setStore ] = useState([]);
-
-  const loadData = async () => {
-    try {
-      const response = await axios.get('/api/cartmart');
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
     (async () => {
@@ -27,7 +21,8 @@ function App() {
 
   return (
     <div>
-      <ItemCard itemData={store[0]}/>
+      <Filters />
+      <Discount discountValue='40'/>
       Hello, World!
     </div>
   );
