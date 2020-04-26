@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import { loadData } from './services/requests';
 
+import HomePage from './pages/HomePage/HomePage';
+import CartPage from './pages/CartPage/CartPage';
+
 import './App.css';
-
-import ItemCard from './components/ItemCard/ItemCard';
-
-import Filters from './components/Filters/Filters';
-import Discount from './components/Discount/Discount';
 
 function App() {
   const [ store, setStore ] = useState([]);
@@ -20,11 +19,10 @@ function App() {
   },[]);
 
   return (
-    <div>
-      <Filters />
-      <Discount discountValue='40'/>
-      Hello, World!
-    </div>
+    <Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route exact path='/cart' component={CartPage} />
+    </Switch>
   );
 }
 

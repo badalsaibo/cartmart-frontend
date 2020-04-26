@@ -1,0 +1,66 @@
+.filter-card {
+
+  &__name {
+    font-family: var(--font-secondary);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 16px;
+    letter-spacing: 0.055em;
+    text-transform: capitalize;
+    border-bottom: 1px solid #E2E1E1;
+    display: inline-block;
+  }
+
+  &__checkbox {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+
+    &--checkbox {
+      display: none;
+    }
+
+    &--dummy {
+      display: block;
+      width: 1.1rem;
+      height: 1.1rem;
+      border: 1px solid #60D27E;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        width: 0.5rem;
+        height: 0.5rem;
+        background-color: #60D27E;
+        top: 50%;
+        bottom: 50%;
+        transform: translate(33%, -61%);
+        opacity: 0;
+        
+      }
+    }
+
+    &--label {
+      display: inline-block ;
+      font-family: Cabin;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 16px;
+      /* identical to box height */
+      text-transform: capitalize;
+      text-align: right;
+      letter-spacing: 0.055em;
+
+      color: #555353;
+    }
+
+    &--checkbox:checked ~ .filter-card__checkbox--label .filter-card__checkbox--dummy::after {
+      opacity: 1;
+    }
+  }
+}
