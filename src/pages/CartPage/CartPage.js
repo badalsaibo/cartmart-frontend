@@ -13,7 +13,7 @@ const getTotalPrice = (cartItems) => {
   return total.toFixed(2);
 };
 
-const CartPage = ({ cartItems, addToCart, history }) => {
+const CartPage = ({ cartItems, addToCart, deleteFromCart, history }) => {
 
   if (!cartItems.length) {
     return null;
@@ -28,6 +28,7 @@ const CartPage = ({ cartItems, addToCart, history }) => {
             key={cartItem._id}
             cartItem={cartItem}
             addToCart={addToCart}
+            deleteFromCart={deleteFromCart}
           />
         ))}
       </div>
