@@ -7,7 +7,7 @@ import './CheckoutItem.scss';
 
 const checkoutItemTotal = (quantity, price) => (quantity * price).toFixed(2);
 
-const CheckoutItem = ({ cartItem, addToCart, deleteFromCart }) => {
+const CheckoutItem = ({ cartItem, addToCart, deleteFromCart, subtractFromCart }) => {
   const { name, price, offer, display_image, quantity, gender, color_name } = cartItem;
   const color = color_name.split(' ')[0].toLocaleLowerCase();
   const total = checkoutItemTotal(quantity, price);
@@ -28,7 +28,11 @@ const CheckoutItem = ({ cartItem, addToCart, deleteFromCart }) => {
         </div>
 
         <div className='checkout-item__quantity'>
-          <FaMinusCircle size='1.5rem' color='#5D5D5D'/>
+          <FaMinusCircle
+            size='1.5rem'
+            color='#5D5D5D'
+            onClick={() => subtractFromCart(cartItem)}
+          />
           <span className='checkout-item__quantity--amount'>{quantity}</span>
           <FaPlusCircle
             size='1.5rem' 

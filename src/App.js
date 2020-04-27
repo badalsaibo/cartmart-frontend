@@ -40,6 +40,24 @@ function App() {
     setCartStore(updatedCart);
   };
 
+  const subtractFromCart = (itemToSubtract) => {
+    const itemInCart = cartStore.find((cartItem) => cartItem.id === itemToSubtract.id);
+    const quantity = itemInCart.quantity;
+
+    if (quantity === 1) {
+      deleteFromCart(itemToSubtract);
+      return;
+    }
+
+    const updatedCart = cartStore.map((cartItem) => {
+      if (cartItem.id === itemToSubtract.id) {
+        cartItem.quantity = cartItem.quantity - 1;
+      }
+      return cartItem;
+    });
+    setCartStore(updatedCart);
+  };
+
   useEffect(() => {
     (async () => {
       const response = await loadData();
@@ -77,6 +95,7 @@ function App() {
                   cartItems={cartStore}
                   addToCart={addToCart}
                   deleteFromCart={deleteFromCart}
+                  subtractFromCart={subtractFromCart}
                 />}
             />
           </Switch>
