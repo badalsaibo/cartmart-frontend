@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   const [ isLoading, setIsLoading ] = useState(true);
   const [ store, setStore ] = useState([]);
-  const [ cartStore, setCartStore ] = useState([
+  /* const [ cartStore, setCartStore ] = useState([
     {
       _id: "5e7f1d829218b616c2682bfb",
       quantity: 1,
@@ -95,7 +95,28 @@ function App() {
       model: "-1",
       experiment_id: "plp_sorting;default;v1"
     }
-  ]);
+  ]); */
+
+  const [ cartStore, setCartStore ] = useState([]);
+
+  const addToCart = (itemToAdd) => {
+    const alreadyExists = cartStore.find((cartItem) => cartItem.id === itemToAdd.id);
+    if (alreadyExists) {
+      const updatedCart = cartStore.map((cartItem) => {
+        if (cartItem.id === itemToAdd.id) {
+          cartItem.quantity = cartItem.quantity + 1;
+        }
+        return cartItem;
+      });
+      setCartStore(updatedCart);
+      return;
+    }
+    /* -- Else just add it to cartStore -- */
+    setCartStore([
+      ...cartStore,
+      { ...itemToAdd }
+    ]);
+  };
 
   useEffect(() => {
     (async () => {
@@ -105,9 +126,12 @@ function App() {
     })();
   },[]);
 
+  /* -- Logger -- */
+  useEffect(() => console.log(cartStore), [cartStore]);
+
   return (
     <>
-      <Nav />
+      <Nav cartItems={cartStore} />
       {
         isLoading ?
           'Loading...' :
@@ -115,12 +139,12 @@ function App() {
             <Route
               exact
               path='/'
-              render={(props) => <HomePage {...props} items={store} />}
+              render={(props) => <HomePage {...props} items={store} addToCart={addToCart}/>}
             />
             <Route
               exact
               path='/cart'
-              render={(props) => <CartPage {...props} cartItems={cartStore} />}
+              render={(props) => <CartPage {...props} cartItems={cartStore} addToCart={addToCart} />}
             />
           </Switch>
       }

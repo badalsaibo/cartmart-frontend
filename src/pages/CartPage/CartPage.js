@@ -13,7 +13,12 @@ const getTotalPrice = (cartItems) => {
   return total.toFixed(2);
 };
 
-const CartPage = ({ cartItems, history }) => {
+const CartPage = ({ cartItems, addToCart, history }) => {
+
+  if (!cartItems.length) {
+    return null;
+  }
+
   const total = getTotalPrice(cartItems);
   return (
     <div className='cart-page'>
@@ -22,6 +27,7 @@ const CartPage = ({ cartItems, history }) => {
           <CheckoutItem
             key={cartItem._id}
             cartItem={cartItem}
+            addToCart={addToCart}
           />
         ))}
       </div>

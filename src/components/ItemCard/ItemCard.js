@@ -5,7 +5,7 @@ import Discount from '../Discount/Discount';
 
 import './ItemCard.scss';
 
-const ItemCard = ({ itemData }) => {
+const ItemCard = ({ itemData, addToCart }) => {
   const { name, mrp, price, offer, display_image } = itemData;
   const imageUrl = `https://images.bewakoof.com/t320/${display_image}`;
   return (
@@ -20,7 +20,10 @@ const ItemCard = ({ itemData }) => {
         </div>
         <Discount discountValue={offer}/>
       </div>
-      <AddToCartButton />
+      <AddToCartButton
+        itemData={itemData}
+        addToCart={addToCart}
+      />
     </div>
   );
 };

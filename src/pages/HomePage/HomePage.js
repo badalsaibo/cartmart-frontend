@@ -5,7 +5,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 
 import './HomePage.scss';
 
-const HomePage = ({ items }) => {
+const HomePage = ({ items, addToCart }) => {
   console.log(items);
   return (
     <div className='homepage'>
@@ -19,6 +19,7 @@ const HomePage = ({ items }) => {
               <ItemCard
                 key={item.id}
                 itemData={item}
+                addToCart={addToCart}
               />
             ))
           }
