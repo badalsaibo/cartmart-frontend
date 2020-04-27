@@ -10,20 +10,20 @@ const FilterCard = (props) => {
       <div className='filter-card__checkbox'>
         {
           checkboxes.map((checkbox, idx) => (
-            <React.Fragment key={idx}>
+            <div className='filter-card__checkbox-group' key={idx}>
               <input
-                className='filter-card__checkbox--checkbox'
+                className='filter-card__checkbox-group--checkbox'
                 type='checkbox'
                 id={checkbox}
               />
               <label
-                className='filter-card__checkbox--label'
+                className='filter-card__checkbox-group--label'
                 htmlFor={checkbox}
               >
-                <span className='filter-card__checkbox--dummy'></span>
-                {checkbox}
+                <span className='filter-card__checkbox-group--dummy'></span>
+                <span className='filter-card__checkbox-group--text'>{checkbox}</span>
               </label>
-            </React.Fragment>
+            </div>
           ))
         }
       </div>

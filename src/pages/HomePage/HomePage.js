@@ -1,25 +1,27 @@
 import React from 'react';
-import { FiShoppingCart } from 'react-icons/fi';
+
+import ItemCard from '../../components/ItemCard/ItemCard';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 import './HomePage.scss';
 
-const HomePage = () => {
+const HomePage = ({ items }) => {
+  console.log(items);
   return (
     <div className='homepage'>
-      <nav className='nav'>
-        <h1 className='heading'>cartmart</h1>
-        <div className='cart'>
-          <FiShoppingCart
-            size='30px'
-            color='#60D27E'
-          />
-          <span className='cart-number'>12</span>
-        </div>
-      </nav>
-      <div className='sidebar'></div>
-      <main>
+      <aside className='aside'>
+        <Sidebar />
+      </aside>
+      <main className='main'>
         <div className='items'>
-          Item 1. Item 2.
+          {
+            items.map((item) => (
+              <ItemCard
+                key={item.id}
+                itemData={item}
+              />
+            ))
+          }
         </div>
       </main>
     </div>

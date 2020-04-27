@@ -1,6 +1,9 @@
 .filter-card {
+  padding: 0 2rem;
+  width: 100%;
 
   &__name {
+    width: 100%;
     font-family: var(--font-secondary);
     font-style: normal;
     font-weight: 500;
@@ -10,57 +13,68 @@
     text-transform: capitalize;
     border-bottom: 1px solid #E2E1E1;
     display: inline-block;
+    padding-bottom: 1rem;
+    margin-top: 3.4rem;
   }
 
   &__checkbox {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: space-between;
+    margin-top: 2rem;
 
-    &--checkbox {
-      display: none;
-    }
+    &-group {
+      margin-bottom: 1.4rem;
 
-    &--dummy {
-      display: block;
-      width: 1.1rem;
-      height: 1.1rem;
-      border: 1px solid #60D27E;
-      position: relative;
-
-      &::after {
-        position: absolute;
-        content: '';
-        width: 0.5rem;
-        height: 0.5rem;
-        background-color: #60D27E;
-        top: 50%;
-        bottom: 50%;
-        transform: translate(33%, -61%);
-        opacity: 0;
-        
+      &--checkbox {
+        display: none;
       }
-    }
 
-    &--label {
-      display: inline-block ;
-      font-family: Cabin;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 13px;
-      line-height: 16px;
-      /* identical to box height */
-      text-transform: capitalize;
-      text-align: right;
-      letter-spacing: 0.055em;
-
-      color: #555353;
-    }
-
-    &--checkbox:checked ~ .filter-card__checkbox--label .filter-card__checkbox--dummy::after {
-      opacity: 1;
+      &--label {
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      &--dummy {
+        position: relative;
+        display: inline-block;
+        width: 1.1rem;
+        height: 1.1rem;
+        border: 1px solid #60D27E;
+        border-radius: 3px;
+  
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: -3px;
+          width: 4px;
+          height: 8px;
+          border-color: #60D27E;
+          border-width: 0 1px 1px 0;
+          border-style: solid;
+          transform-origin: bottom left;
+          transform: rotate(45deg);
+          opacity: 0;
+        }
+      }
+  
+      &--text {
+        display: inline-block ;
+        font-family: Cabin;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.3rem;
+        line-height: 16px;
+        text-transform: capitalize;
+        text-align: end;
+        letter-spacing: 0.055em;
+        color: #555353;
+      }
+  
+      &--checkbox:checked ~ .filter-card__checkbox-group--label > .filter-card__checkbox-group--dummy::after {
+        opacity: 1;
+      }
     }
   }
 }

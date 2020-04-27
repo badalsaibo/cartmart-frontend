@@ -4,7 +4,7 @@ import './Discount.scss';
 
 const Discount = ({ discountValue }) => {
   return (
-    <div className={discountValue ? 'discount-show' : 'discount-hidden'}>-&nbsp;{discountValue}&nbsp;%</div>
+    <div className={discountValue ? 'discount-show' : 'discount-hidden'}>-&nbsp;{discountValue}</div>
   );
 };
 
