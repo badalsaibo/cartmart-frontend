@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import { loadData } from './services/requests';
 
 import Nav from './components/Nav/Nav';
+import Spinner from './components/Spinner/Spinner';
+
 import HomePage from './pages/HomePage/HomePage';
 import CartPage from './pages/CartPage/CartPage';
 
@@ -13,6 +15,8 @@ function App() {
   const [ isLoading, setIsLoading ] = useState(true);
   const [ store, setStore ] = useState([]);
   const [ cartStore, setCartStore ] = useState([]);
+
+  /* -- Cart Funtionality Functions -- */
 
   const addToCart = (itemToAdd) => {
     const alreadyExists = cartStore.find((cartItem) => cartItem.id === itemToAdd.id);
@@ -74,7 +78,7 @@ function App() {
       <Nav cartItems={cartStore} />
       {
         isLoading ?
-          'Loading...' :
+          <Spinner /> :
           <Switch>
             <Route
               exact

@@ -35,7 +35,7 @@ const CheckoutItem = ({ cartItem, addToCart, deleteFromCart, subtractFromCart })
           />
           <span className='checkout-item__quantity--amount'>{quantity}</span>
           <FaPlusCircle
-            size='1.5rem' 
+            size='1.5rem'
             color='#5D5D5D'
             onClick={() => addToCart(cartItem)}
           />
