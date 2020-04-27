@@ -1,10 +1,14 @@
 .item {
   width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__image {
     width: 180px;
     height: 224px;
     background-size: cover;
+    margin-bottom: 1.4rem;
   }
 
   &__name {
@@ -14,6 +18,7 @@
     line-height: 15px;
     letter-spacing: 0.055em;
     color: #1F1F1F;
+    margin-bottom: 0.7rem;
   }
 
   &-price-box {
@@ -41,5 +46,7 @@
 
   &__price-discount {
     display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 }

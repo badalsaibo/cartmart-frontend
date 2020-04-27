@@ -1,6 +1,7 @@
 .nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 3.4rem 4.5rem;
 
   .heading {
     font-family: Spinnaker;
@@ -8,10 +9,10 @@
     font-weight: normal;
     font-size: 3.2rem;
     line-height: 38px;
-    /* identical to box height */
     text-align: center;
     color: #5B4696;
     text-transform: uppercase;
+    margin-left: 35.3rem;
   }
 
   .cart {
